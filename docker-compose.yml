@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  api:
+    container_name: books-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/books
+    environment:
+      APP_ENV: dev
+    ports:
+      - 8000:8000
+    command: symfony server:start

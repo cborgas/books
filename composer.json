@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Books\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "Books\\Tests\\": "tests/"
         }
     },
     "replace": {
