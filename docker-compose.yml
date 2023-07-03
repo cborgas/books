@@ -13,3 +13,17 @@ services:
     ports:
       - 8000:8000
     command: symfony server:start
+
+  postgres:
+    image: 'postgres:15-alpine'
+    environment:
+      POSTGRES_PASSWORD: main
+      POSTGRES_USER: main
+      POSTGRES_DB: books,books_test
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+
+volumes:
+  database_data:
