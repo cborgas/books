@@ -11,6 +11,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.15",
         "eventsauce/eventsauce": "^3.4",
+        "psr/http-message": "^2.0",
         "ramsey/uuid": "^4.7",
         "ramsey/uuid-doctrine": "^2.0",
         "symfony/console": "6.3.*",
@@ -69,6 +70,7 @@
             "bin/console doctrine:migrations:migrate --no-interaction"
         ],
         "build:test": [
+            "bin/console doctrine:schema:drop -e test --force",
             "bin/console doctrine:migrations:migrate -e test --no-interaction"
         ],
         "test": [
