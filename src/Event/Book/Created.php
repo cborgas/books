@@ -8,16 +8,7 @@ use Ramsey\Uuid\UuidInterface;
 readonly class Created
 {
     public function __construct(
-        private BookId $id,
-        private string $name,
+        public BookId $id,
+        public string $name,
     ) {}
-    public function id(): BookId
-    {
-        return $this->id;
-    }
-
-    public function name(): string
-    {
-        return $this->name;
-    }
 }

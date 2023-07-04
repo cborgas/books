@@ -24,7 +24,7 @@ class Book implements AggregateRoot
 
     public function applyCreated(Created $event): void
     {
-        $this->name = $event->name();
+        $this->name = $event->name;
     }
 
     public function getName(): string
