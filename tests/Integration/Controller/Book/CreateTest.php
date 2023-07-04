@@ -22,7 +22,7 @@ class CreateTest extends WebTestCase
     }
 
     #[Test]
-    public function createBookExpectsSuccessReponse(): void
+    public function createBookExpectsSuccessResponse(): void
     {
         $bookData = [
             'name' => 'Test Book',
