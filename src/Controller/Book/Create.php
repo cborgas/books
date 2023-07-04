@@ -19,14 +19,14 @@ class Create
         $name = $data['name'] ?? null;
 
         $bookId = BookId::create();
-        $book = Book::initiate($bookId);
+        $book = Book::create($bookId, $name);
 
         return new JsonResponse([
             'code' => 200,
             'message' => 'Book created successfully',
             'data' => [
                 'id' => $bookId->toString(),
-                'name' => $name,
+                'name' => $book->getName(),
             ],
         ]);
     }
