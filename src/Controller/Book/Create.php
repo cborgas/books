@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class Create
 {
-    #[Route('/books', methods: ['POST'])]
+    #[Route('/api/books', methods: ['POST'])]
     public function create(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);

@@ -15,7 +15,7 @@ class Create
 {
     public function __construct(private EntityManagerInterface $entityManager) {}
 
-    #[Route('/shops', methods: ['POST'])]
+    #[Route('/api/shops', methods: ['POST'])]
     public function create(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);

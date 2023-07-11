@@ -28,7 +28,7 @@ class CreateTest extends WebTestCase
             'name' => 'Test Book',
         ];
 
-        $this->client->request(Request::METHOD_POST, '/books', [], [], [], json_encode($bookData));
+        $this->client->request(Request::METHOD_POST, '/api/books', [], [], [], json_encode($bookData));
 
         $response = $this->client->getResponse();
 
