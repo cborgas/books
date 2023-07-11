@@ -67,10 +67,13 @@
             "@auto-scripts"
         ],
         "build": [
+            "bin/console doctrine:database:drop --if-exists --force",
+            "bin/console doctrine:database:create --if-not-exists",
             "bin/console doctrine:migrations:migrate --no-interaction"
         ],
         "build:test": [
-            "bin/console doctrine:schema:drop -e test --force",
+            "bin/console doctrine:database:drop -e test --if-exists --force",
+            "bin/console doctrine:database:create -e test --if-not-exists",
             "bin/console doctrine:migrations:migrate -e test --no-interaction"
         ],
         "test": [
