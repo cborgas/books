@@ -23,5 +23,19 @@ services:
             - '../src/Kernel.php'
             - '../src/Event/'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    EventSauce\EventSourcing\Serialization\ObjectMapperPayloadSerializer:
+        class: EventSauce\EventSourcing\Serialization\ObjectMapperPayloadSerializer
+
+    EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer:
+        class: EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer
+        arguments:
+            $payloadSerializer: '@EventSauce\EventSourcing\Serialization\ObjectMapperPayloadSerializer'
+
+    Books\Repository\MessageRepository:
+        class: Books\Repository\MessageRepository
+        arguments:
+            - '@doctrine.dbal.default_connection'
+            - '@EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer'
+
+    EventSauce\EventSourcing\MessageRepository:
+        alias: MessageRepository
