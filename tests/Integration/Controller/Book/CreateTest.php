@@ -37,7 +37,6 @@ class CreateTest extends WebTestCase
 
         $responseData = json_decode($response->getContent(), true);
 
-        $this->assertSame(200, $responseData['code']);
         $this->assertSame('Book created successfully', $responseData['message']);
 
         $this->assertArrayHasKey('id', $responseData['data']);

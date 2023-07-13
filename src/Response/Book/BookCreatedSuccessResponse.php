@@ -14,7 +14,6 @@ final  class BookCreatedSuccessResponse extends JsonResponse
     {
         parent::__construct(
             [
-                'code' => Response::HTTP_OK,
                 'message' => 'Book created successfully',
                 'data' => [
                     'id' => $book->getId()->toString(),
