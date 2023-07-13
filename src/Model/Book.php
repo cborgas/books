@@ -12,10 +12,13 @@ class Book implements AggregateRoot
 {
     use AggregateRootBehaviour;
 
+    private readonly BookId $id;
+
     private ?string $name;
 
-    public static function create(BookId $id, string $name): Book
+    public static function create(string $name): Book
     {
+        $id = BookId::create();
         $book = new static($id);
         $book->recordThat(new Created($id, $name));
 
@@ -25,10 +28,16 @@ class Book implements AggregateRoot
     public function applyCreated(Created $event): void
     {
         $this->name = $event->name;
+        $this->id = $event->id;
     }
 
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getId(): BookId
+    {
+        return $this->id;
     }
 }
