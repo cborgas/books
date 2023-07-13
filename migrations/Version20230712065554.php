@@ -11,13 +11,13 @@ final class Version20230712065554 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Create events table for EventSauce';
+        return 'Create message table for EventSauce';
     }
 
     public function up(Schema $schema): void
     {
         $this->addSql(
-            'CREATE TABLE event (
+            'CREATE TABLE message (
                     id SERIAL,
                     event_id UUID NOT NULL,
                     aggregate_root_id UUID NOT NULL,
@@ -31,6 +31,6 @@ final class Version20230712065554 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        $this->addSql('DROP TABLE event');
+        $this->addSql('DROP TABLE message');
     }
 }

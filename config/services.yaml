@@ -38,4 +38,13 @@ services:
             - '@EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer'
 
     EventSauce\EventSourcing\MessageRepository:
-        alias: MessageRepository
+        alias: Books\Repository\MessageRepository
+
+    EventSauce\EventSourcing\SynchronousMessageDispatcher:
+        class: EventSauce\EventSourcing\SynchronousMessageDispatcher
+
+    EventSauce\EventSourcing\MessageDispatcher:
+        alias: EventSauce\EventSourcing\SynchronousMessageDispatcher
+
+    Books\Repository\AggregateRoot\BookRepository: ~
+
