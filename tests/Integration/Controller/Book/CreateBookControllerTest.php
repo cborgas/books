@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CreateTest extends WebTestCase
+class CreateBookControllerTest extends WebTestCase
 {
     private \Symfony\Bundle\FrameworkBundle\KernelBrowser $client;
 
