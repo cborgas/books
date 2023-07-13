@@ -19,9 +19,9 @@ final readonly class CreateBookController
     #[Route('/api/books', methods: ['POST'])]
     public function create(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $payload = $request->getPayload();
 
-        $book = Book::create($data['name'] ?? null);
+        $book = Book::create($payload->get('name'));
         $this->bookRepository->persist($book);
 
         return new BookCreatedSuccessResponse($book);
