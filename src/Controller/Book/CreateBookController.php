@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-final readonly class Create
+final readonly class CreateBookController
 {
     public function __construct(private BookRepository $bookRepository) {}
 
