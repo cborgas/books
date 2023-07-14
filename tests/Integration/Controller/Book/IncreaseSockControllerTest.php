@@ -22,4 +22,16 @@ class IncreaseSockControllerTest extends BookControllerTestCase
         $responseData = $this->getJsonResponse();
         $this->assertSame(10, $responseData['data']['stock']);
     }
+
+    #[Test]
+    public function increase_stock_expects_correct_stock_count_when_increased_twice(): void
+    {
+        $this->createBook();
+
+        $this->increaseStock($this->getBookId(), amount: 10);
+        $this->increaseStock($this->getBookId(), amount: 5);
+
+        $responseData = $this->getJsonResponse();
+        $this->assertSame(expected: 15, actual: $responseData['data']['stock']);
+    }
 }
