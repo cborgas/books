@@ -11,15 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CreateBookControllerTest extends ControllerTestCase
+class CreateBookControllerTest extends BookControllerTestCase
 {
     #[Test]
     public function create_book_expects_success_response(): void
     {
-        $bookData = ['name' => 'Test Book',];
-
-        $this->client->request(Request::METHOD_POST, '/api/books', content: json_encode($bookData));
-        $response = $this->client->getResponse();
+        $response = $this->createBook();
         $responseData = $this->getJsonResponse();
 
         $this->assertSame(Response::HTTP_CREATED, $response->getStatusCode());
@@ -32,12 +29,11 @@ class CreateBookControllerTest extends ControllerTestCase
     #[Test]
     public function create_book_expects_book_in_response_payload(): void
     {
-        $bookData = ['name' => 'Test Book'];
-
-        $this->client->request(Request::METHOD_POST, '/api/books', content: json_encode($bookData));
+        $name = 'Test Book';
+        $this->createBook($name);
         $responseData = $this->getJsonResponse();
 
         $this->assertTrue(Uuid::isValid($responseData['data']['id']));
-        $this->assertSame($bookData['name'], $responseData['data']['name']);
+        $this->assertSame($name, $responseData['data']['name']);
     }
 }
