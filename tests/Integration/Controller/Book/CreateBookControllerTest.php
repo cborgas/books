@@ -6,6 +6,7 @@ namespace Books\Tests\Integration\Controller\Book;
 
 use Books\Tests\Integration\Controller\ControllerTestCase;
 use PHPUnit\Framework\Attributes\Test;
+use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,15 +18,26 @@ class CreateBookControllerTest extends ControllerTestCase
     {
         $bookData = ['name' => 'Test Book',];
 
-        $this->client->request(Request::METHOD_POST, '/api/books', [], [], [], json_encode($bookData));
+        $this->client->request(Request::METHOD_POST, '/api/books', content: json_encode($bookData));
         $response = $this->client->getResponse();
+        $responseData = $this->getJsonResponse();
 
-        $responseData = json_decode($response->getContent(), true);
         $this->assertSame(Response::HTTP_CREATED, $response->getStatusCode());
         $this->assertSame('application/json', $response->headers->get('Content-Type'));
         $this->assertSame('Book created successfully', $responseData['message']);
         $this->assertArrayHasKey('id', $responseData['data']);
         $this->assertArrayHasKey('name', $responseData['data']);
+    }
+
+    #[Test]
+    public function create_book_expects_book_in_response_payload(): void
+    {
+        $bookData = ['name' => 'Test Book'];
+
+        $this->client->request(Request::METHOD_POST, '/api/books', content: json_encode($bookData));
+        $responseData = $this->getJsonResponse();
+
+        $this->assertTrue(Uuid::isValid($responseData['data']['id']));
         $this->assertSame($bookData['name'], $responseData['data']['name']);
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Books\Tests\Integration\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ControllerTestCase extends WebTestCase
 {
@@ -16,5 +17,10 @@ class ControllerTestCase extends WebTestCase
 
         $this->client = static::createClient();
         $this->client->disableReboot();
+    }
+
+    protected function getJsonResponse(): array
+    {
+        return json_decode($this->client->getResponse()->getContent(), true);
     }
 }
