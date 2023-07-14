@@ -5,16 +5,20 @@ declare(strict_types=1);
 namespace Books\Model;
 
 use EventSauce\EventSourcing\AggregateRootId;
+use EventSauce\ObjectHydrator\Constructor;
+use EventSauce\ObjectHydrator\DoNotSerialize;
+use EventSauce\ObjectHydrator\MapFrom;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 readonly class BookId implements AggregateRootId
 {
-    public function __construct(private UuidInterface $uuid) {}
+    public function __construct(private UuidInterface $id) {}
 
-    public function toString(): string
+    #[Constructor]
+    public static function fromString(string $id): static
     {
-        return $this->uuid->toString();
+        return new static(Uuid::fromString($id));
     }
 
     public static function create(): static
@@ -22,8 +26,14 @@ readonly class BookId implements AggregateRootId
         return new static(Uuid::uuid4());
     }
 
-    public static function fromString(string $aggregateRootId): static
+    public function id(): string
     {
-        return new static(Uuid::fromString($aggregateRootId));
+        return $this->toString();
+    }
+
+    #[DoNotSerialize]
+    public function toString(): string
+    {
+        return $this->id->toString();
     }
 }
