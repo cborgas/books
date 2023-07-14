@@ -29,7 +29,6 @@ class Create
         $this->entityManager->flush();
 
         return new JsonResponse([
-            'code' => 200,
             'message' => 'Shop created successfully',
             'data' => [
                 'id' => $shop->getId()->toString(),
