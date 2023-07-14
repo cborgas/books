@@ -13,26 +13,19 @@ use Symfony\Component\HttpFoundation\Response;
 class CreateBookControllerTest extends ControllerTestCase
 {
     #[Test]
-    public function createBookExpectsSuccessResponse(): void
+    public function create_book_expects_success_response(): void
     {
-        $bookData = [
-            'name' => 'Test Book',
-        ];
+        $bookData = ['name' => 'Test Book',];
 
         $this->client->request(Request::METHOD_POST, '/api/books', [], [], [], json_encode($bookData));
-
         $response = $this->client->getResponse();
 
+        $responseData = json_decode($response->getContent(), true);
         $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
         $this->assertSame('application/json', $response->headers->get('Content-Type'));
-
-        $responseData = json_decode($response->getContent(), true);
-
         $this->assertSame('Book created successfully', $responseData['message']);
-
         $this->assertArrayHasKey('id', $responseData['data']);
         $this->assertArrayHasKey('name', $responseData['data']);
-
         $this->assertSame($bookData['name'], $responseData['data']['name']);
     }
 }
