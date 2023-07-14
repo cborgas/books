@@ -14,7 +14,7 @@ class Book implements AggregateRoot
 
     private readonly BookId $id;
 
-    private ?string $name;
+    private string $name;
 
     public static function create(string $name): Book
     {
@@ -39,5 +39,10 @@ class Book implements AggregateRoot
     public function getId(): BookId
     {
         return $this->id;
+    }
+
+    public function getStock(): int
+    {
+        return 10;
     }
 }

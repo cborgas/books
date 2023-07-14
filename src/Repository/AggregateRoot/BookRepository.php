@@ -10,6 +10,9 @@ use EventSauce\EventSourcing\MessageDecorator;
 use EventSauce\EventSourcing\MessageDispatcher;
 use EventSauce\EventSourcing\MessageRepository;
 
+/**
+ * @method \Books\Model\Book retrieve(\Books\Model\BookId $aggregateRootId)
+ */
 class BookRepository extends EventSourcedAggregateRootRepository
 {
     public function __construct(MessageRepository $messageRepository, MessageDispatcher $dispatcher = null)
