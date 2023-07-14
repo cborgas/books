@@ -19,6 +19,6 @@ final  class BookCreatedSuccessResponse extends JsonResponse
                     'id' => $book->getId()->toString(),
                     'name' => $book->getName(),
                 ],
-        ], Response::HTTP_OK);
+        ], Response::HTTP_CREATED);
     }
 }

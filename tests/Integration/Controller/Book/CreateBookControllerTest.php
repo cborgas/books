@@ -21,7 +21,7 @@ class CreateBookControllerTest extends ControllerTestCase
         $response = $this->client->getResponse();
 
         $responseData = json_decode($response->getContent(), true);
-        $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
+        $this->assertSame(Response::HTTP_CREATED, $response->getStatusCode());
         $this->assertSame('application/json', $response->headers->get('Content-Type'));
         $this->assertSame('Book created successfully', $responseData['message']);
         $this->assertArrayHasKey('id', $responseData['data']);
