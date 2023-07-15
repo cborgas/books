@@ -8,8 +8,9 @@ use Books\Event\Book\Created;
 use Books\Event\Book\StockIncreased;
 use EventSauce\EventSourcing\AggregateRoot;
 use EventSauce\EventSourcing\AggregateRootBehaviour;
+use JsonSerializable;
 
-class Book implements AggregateRoot
+class Book implements AggregateRoot, JsonSerializable
 {
     use AggregateRootBehaviour;
 
@@ -57,5 +58,14 @@ class Book implements AggregateRoot
     public function getStock(): int
     {
         return $this->stock;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id->toString(),
+            'name' => $this->name,
+            'stock' => $this->stock,
+        ];
     }
 }
