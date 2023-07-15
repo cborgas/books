@@ -10,7 +10,7 @@ use Books\Tests\Integration\Controller\ControllerTestCase;
 use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\HttpFoundation\Request;
 
-class IncreaseSockControllerTest extends BookControllerTestCase
+class IncreaseStockControllerTest extends BookControllerTestCase
 {
     #[Test]
     public function increase_stock_expects_book_stock_count_to_increase(): void

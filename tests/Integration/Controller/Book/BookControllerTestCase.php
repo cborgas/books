@@ -36,6 +36,7 @@ class BookControllerTestCase extends ControllerTestCase
         $this->client->request(
             Request::METHOD_POST,
             sprintf('/api/books/%s/increase-stock', $bookId),
+            server: ['CONTENT_TYPE' => 'application/json'],
             content: json_encode(['amount' => $amount])
         );
     }
