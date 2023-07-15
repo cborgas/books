@@ -14,9 +14,9 @@ class GetBookController
     public function __construct(private BookRepository $bookRepository) {}
 
     #[Route('/api/books/{bookId}', methods: ['GET'])]
-    public function get(string $bookId): JsonResponse
+    public function get(BookId $bookId): JsonResponse
     {
-        $book = $this->bookRepository->retrieve(BookId::fromString($bookId));
+        $book = $this->bookRepository->retrieve($bookId);
 
         return new JsonResponse(['data' => $book]);
     }

@@ -25,6 +25,13 @@ services:
             - '../src/Response/'
             - '../src/Request/'
 
+    Books\Request\Book\BookIdResolver:
+        class: Books\Request\Book\BookIdResolver
+        tags:
+            - controller.argument_value_resolver:
+                name: bookId
+                priority: 150
+
     EventSauce\EventSourcing\Serialization\ObjectMapperPayloadSerializer:
         class: EventSauce\EventSourcing\Serialization\ObjectMapperPayloadSerializer
 

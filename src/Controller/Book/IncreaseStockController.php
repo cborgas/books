@@ -19,10 +19,10 @@ class IncreaseStockController
 
     #[Route('/api/books/{bookId}/increase-stock', methods: ['POST'])]
     public function increaseStock(
-        string $bookId,
+        BookId $bookId,
         #[MapRequestPayload(acceptFormat: 'json')] IncreaseStock $increaseStockRequest
     ): JsonResponse {
-        $book = $this->bookRepository->retrieve(BookId::fromString($bookId));
+        $book = $this->bookRepository->retrieve($bookId);
         $book->increaseStock($increaseStockRequest->amount);
         $this->bookRepository->persist($book);
 
