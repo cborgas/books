@@ -18,11 +18,6 @@ class GetBookController
     {
         $book = $this->bookRepository->retrieve(BookId::fromString($bookId));
 
-        return new JsonResponse([
-            'data' => [
-                'id' => $book->getId()->toString(),
-                'name' => $book->getName(),
-            ],
-        ]);
+        return new JsonResponse(['data' => $book]);
     }
 }

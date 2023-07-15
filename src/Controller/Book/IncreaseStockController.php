@@ -8,6 +8,7 @@ use Books\Model\BookId;
 use Books\Repository\AggregateRoot\BookRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IncreaseStockController
@@ -19,16 +20,10 @@ class IncreaseStockController
     {
         $book = $this->bookRepository->retrieve(BookId::fromString($bookId));
         $payload = $request->getPayload();
-        $increaseStockAmount = (int) $payload->get('amount');
-        $book->increaseStock($increaseStockAmount);
+
+        $book->increaseStock((int) $payload->get('amount'));
         $this->bookRepository->persist($book);
 
-        return new JsonResponse([
-            'data' => [
-                'id' => $book->getId()->toString(),
-                'name' => $book->getName(),
-                'stock' => $book->getStock()
-            ],
-        ]);
+        return new JsonResponse(['data' => $book], Response::HTTP_ACCEPTED);
     }
 }
