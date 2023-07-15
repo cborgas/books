@@ -14,8 +14,13 @@ class BookControllerTestCase extends ControllerTestCase
     protected function createBook(string &$name = 'Test Book'): Response
     {
         $name = UniqueBookName::generate($name);
-        $bookData = ['name' => $name];
-        $this->client->request(Request::METHOD_POST, '/api/books', content: json_encode($bookData));
+
+        $this->client->request(
+            Request::METHOD_POST,
+            '/api/books',
+            server: ['CONTENT_TYPE' => 'application/json'],
+            content: json_encode(['name' => $name])
+        );
 
         return $this->client->getResponse();
     }

@@ -23,6 +23,7 @@ services:
             - '../src/Kernel.php'
             - '../src/Event/'
             - '../src/Response/'
+            - '../src/Request/'
 
     EventSauce\EventSourcing\Serialization\ObjectMapperPayloadSerializer:
         class: EventSauce\EventSourcing\Serialization\ObjectMapperPayloadSerializer

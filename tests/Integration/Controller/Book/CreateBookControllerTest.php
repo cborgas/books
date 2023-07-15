@@ -36,4 +36,17 @@ class CreateBookControllerTest extends BookControllerTestCase
         $this->assertTrue(Uuid::isValid($responseData['data']['id']));
         $this->assertSame($name, $responseData['data']['name']);
     }
+
+    #[Test]
+    public function  create_book_with_empty_payload_expects_error_response(): void
+    {
+        $this->client->request(
+            Request::METHOD_POST,
+            '/api/books',
+            server: ['CONTENT_TYPE' => 'application/json'],
+            content: json_encode([])
+        );
+
+        $this->assertSame(Response::HTTP_UNPROCESSABLE_ENTITY, $this->client->getResponse()->getStatusCode());
+    }
 }
