@@ -3,6 +3,8 @@ build:
 install:
 	docker compose up -d --build
 	docker compose run --rm api composer install
+	docker compose run --rm api composer build
+	docker compose run --rm api composer build:test
 start:
 	docker compose up -d
 stop:
