@@ -20,6 +20,8 @@ class Book implements AggregateRoot, JsonSerializable
 
     private int $stock = 0;
 
+    private bool $created = false;
+
     public static function create(string $name): Book
     {
         $id = BookId::create();
@@ -38,6 +40,7 @@ class Book implements AggregateRoot, JsonSerializable
     {
         $this->name = $event->name;
         $this->id = $event->id;
+        $this->created = true;
     }
 
     public function applyStockIncreased(StockIncreased $event): void
@@ -58,6 +61,11 @@ class Book implements AggregateRoot, JsonSerializable
     public function getStock(): int
     {
         return $this->stock;
+    }
+
+    public function isCreated(): bool
+    {
+        return $this->created;
     }
 
     public function jsonSerialize(): array

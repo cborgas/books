@@ -18,6 +18,10 @@ class GetBookController
     {
         $book = $this->bookRepository->retrieve($bookId);
 
+        if (!$book->isCreated()) {
+            return new JsonResponse(['error' => ['message' => 'Book not found']], JsonResponse::HTTP_NOT_FOUND);
+        }
+
         return new JsonResponse(['data' => $book]);
     }
 }
