@@ -16,12 +16,12 @@ doctrine:
         validate_xml_mapping: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
-        mappings:
-            Books:
-                is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'Books\Entity'
-                alias: Books
+        # mappings:
+        #     Books:
+        #         is_bundle: false
+        #         dir: '%kernel.project_dir%/src/Entity'
+        #         prefix: 'Books\Entity'
+        #         alias: Books
 
 when@prod:
     doctrine:
