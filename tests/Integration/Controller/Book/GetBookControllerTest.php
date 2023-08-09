@@ -4,12 +4,7 @@ declare(strict_types=1);
 
 namespace Books\Tests\Integration\Controller\Book;
 
-use Books\Model\Book;
-use Books\Repository\AggregateRoot\BookRepository;
-use Books\Tests\Integration\Controller\ControllerTestCase;
-use Books\Tests\Utility\UniqueBookName;
 use PHPUnit\Framework\Attributes\Test;
-use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 
 class GetBookControllerTest extends BookControllerTestCase

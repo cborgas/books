@@ -5,12 +5,10 @@ declare(strict_types=1);
 namespace Books\Controller\Book;
 
 use Books\Model\Book;
-use Books\Model\BookId;
 use Books\Repository\AggregateRoot\BookRepository;
 use Books\Request\Book\CreateBook;
 use Books\Response\Book\BookCreatedSuccessResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Annotation\Route;
 

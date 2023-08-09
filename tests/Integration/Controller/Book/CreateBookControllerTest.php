@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Books\Tests\Integration\Controller\Book;
 
-use Books\Tests\Integration\Controller\ControllerTestCase;
 use PHPUnit\Framework\Attributes\Test;
 use Ramsey\Uuid\Uuid;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

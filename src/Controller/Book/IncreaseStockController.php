@@ -8,7 +8,6 @@ use Books\Model\BookId;
 use Books\Repository\AggregateRoot\BookRepository;
 use Books\Request\Book\IncreaseStock;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Annotation\Route;

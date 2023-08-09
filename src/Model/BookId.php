@@ -7,7 +7,6 @@ namespace Books\Model;
 use EventSauce\EventSourcing\AggregateRootId;
 use EventSauce\ObjectHydrator\Constructor;
 use EventSauce\ObjectHydrator\DoNotSerialize;
-use EventSauce\ObjectHydrator\MapFrom;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
