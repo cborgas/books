@@ -7,6 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     
     services:
+      api:
+        image: books-api
+        build:
+          context: .
+          dockerfile: Dockerfile
+        volumes:
+          - .:/var/www/books
+        env:
+          APP_ENV: test
+        ports:
+          - 8000:8000
+        options: --expose=8000
+      
       postgres:
         image: postgres:15-alpine
         env:
@@ -29,6 +42,9 @@ jobs:
     
     - name: Install Composer dependencies
       run: docker exec books-api-container composer install
+
+    - name: Setup test dependencies
+      run: docker exec books-api-container composer build:test
     
     - name: Run tests
       run: docker exec books-api-container composer test
