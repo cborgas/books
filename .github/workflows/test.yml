@@ -25,13 +25,14 @@ jobs:
       run: docker build -t books-api-image -f Dockerfile .
     
     - name: Run Docker container
-      run: docker run -d \
-        --name books-api \
-        -v $PWD:/var/www/books \
-        -e APP_ENV=test \
-        -p 8000:8000 \
-        books-api-image \
-        symfony server:start --no-tls --port=8000 --dir=/var/www/books
+      run: |
+        docker run -d \
+          --name books-api \
+          -v $PWD:/var/www/books \
+          -e APP_ENV=test \
+          -p 8000:8000 \
+          books-api-image \
+          symfony server:start --no-tls --port=8000 --dir=/var/www/books
     
     - name: Install Composer dependencies
       run: docker exec books-api composer install
