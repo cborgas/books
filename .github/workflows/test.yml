@@ -30,6 +30,7 @@ jobs:
           --name books-api \
           -v $PWD:/var/www/books \
           -e APP_ENV=test \
+          -e DATABASE_HOST=localhost \
           -p 8000:8000 \
           books-api-image \
           symfony server:start --no-tls --port=8000 --dir=/var/www/books
