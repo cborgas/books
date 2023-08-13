@@ -1,5 +1,6 @@
+.PHONY: help build install start stop remove exec test
 build:
-	docker compose up -d --build
+	docker compose up -d --build --wait
 install: build
 	docker compose run --rm api composer install
 	docker compose run --rm api composer build
