@@ -39,14 +39,19 @@ services:
         arguments:
             $payloadSerializer: '@EventSauce\EventSourcing\Serialization\ObjectMapperPayloadSerializer'
 
-    Books\Repository\MessageRepository:
-        class: Books\Repository\MessageRepository
+    EventSauce\IdEncoding\StringIdEncoder:
+        class: EventSauce\IdEncoding\StringIdEncoder
+
+    EventSauce\MessageRepository\DoctrineMessageRepository\DoctrineMessageRepository:
+        class: EventSauce\MessageRepository\DoctrineMessageRepository\DoctrineMessageRepository
         arguments:
-            - '@doctrine.dbal.default_connection'
-            - '@EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer'
+            $connection: '@doctrine.dbal.default_connection'
+            $tableName: 'message'
+            $serializer: '@EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer'
+            $aggregateRootIdEncoder: '@EventSauce\IdEncoding\StringIdEncoder'
 
     EventSauce\EventSourcing\MessageRepository:
-        alias: Books\Repository\MessageRepository
+        alias: EventSauce\MessageRepository\DoctrineMessageRepository\DoctrineMessageRepository
 
     EventSauce\EventSourcing\SynchronousMessageDispatcher:
         class: EventSauce\EventSourcing\SynchronousMessageDispatcher
