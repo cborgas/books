@@ -5,6 +5,7 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    container: ubuntu
     
     services:
       postgres:
@@ -34,7 +35,6 @@ jobs:
           --name books-api \
           -v $PWD:/var/www/books \
           -e APP_ENV=test \
-          -e DATABASE_HOST=127.0.0.1 \
           -p 8000:8000 \
           books-api-image \
           symfony server:start --no-tls --port=8000 --dir=/var/www/books
