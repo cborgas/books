@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Books\Controller\Book;
+namespace Books\Api\Controller\Book;
 
 use Books\Model\Book;
 use Books\Repository\AggregateRoot\BookRepository;
