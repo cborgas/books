@@ -5,7 +5,6 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: ubuntu
     
     services:
       postgres:
@@ -31,6 +30,7 @@ jobs:
     
     - name: Run Docker container
       run: |
+        NETWORK_NAME=$(docker network ls -q) \
         docker run -d \
           --name books-api \
           -v $PWD:/var/www/books \
