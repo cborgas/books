@@ -21,7 +21,7 @@ services:
             - '../src/Model/'
             - '../src/Kernel.php'
             - '../src/Event/'
-            - '../src/Response/'
+            - '../src/Api/Response/'
             - '../src/Api/Request/'
 
     Books\Api\Request\Book\BookIdResolver:
