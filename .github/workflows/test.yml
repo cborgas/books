@@ -1,4 +1,4 @@
-name: Test
+name: Composer Test
 
 on: [push]
 
@@ -22,7 +22,11 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Set up Docker environment
-      uses: docker/setup-docker@v2
+      run: |
+        sudo apt-get update
+        sudo apt-get -y install docker.io
+        sudo systemctl start docker
+        sudo systemctl enable docker
     
     - name: Build Docker image
       run: docker build -t books-api .
@@ -35,9 +39,6 @@ jobs:
     
     - name: Install Composer dependencies
       run: docker exec books-api-container composer install
-
-    - name: Setup test dependencies
-      run: docker exec books-api-container composer build:test
     
     - name: Run tests
       run: docker exec books-api-container composer test
