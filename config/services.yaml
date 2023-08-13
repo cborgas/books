@@ -22,6 +22,3 @@ services:
             - controller.argument_value_resolver:
                 name: bookId
                 priority: 150
-
-    Books\Repository\AggregateRoot\BookRepository: ~
-
