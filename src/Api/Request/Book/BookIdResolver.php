@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Books\Request\Book;
+namespace Books\Api\Request\Book;
 
 use Books\Model\BookId;
 use Symfony\Component\HttpFoundation\Request;

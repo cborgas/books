@@ -6,7 +6,7 @@ namespace Books\Api\Controller\Book;
 
 use Books\Model\Book;
 use Books\Repository\AggregateRoot\BookRepository;
-use Books\Request\Book\CreateBook;
+use Books\Api\Request\Book\CreateBook;
 use Books\Response\Book\BookCreatedSuccessResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;

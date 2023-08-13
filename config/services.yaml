@@ -22,10 +22,10 @@ services:
             - '../src/Kernel.php'
             - '../src/Event/'
             - '../src/Response/'
-            - '../src/Request/'
+            - '../src/Api/Request/'
 
-    Books\Request\Book\BookIdResolver:
-        class: Books\Request\Book\BookIdResolver
+    Books\Api\Request\Book\BookIdResolver:
+        class: Books\Api\Request\Book\BookIdResolver
         tags:
             - controller.argument_value_resolver:
                 name: bookId
