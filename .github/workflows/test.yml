@@ -27,9 +27,6 @@ jobs:
     - name: Run Docker container
       run: docker run --name books-api-container -d -p 8000:8000 books-api
     
-    - name: Wait for Symfony server to start
-      run: docker exec books-api-container symfony server:wait
-    
     - name: Install Composer dependencies
       run: docker exec books-api-container composer install
     
