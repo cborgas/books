@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Books\Books\Infrastructure\Controller;
 
 use Books\Books\Domain\BookId;
-use Books\Repository\AggregateRoot\BookRepository;
+use Books\Books\Infrastructure\Repository\BookRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 

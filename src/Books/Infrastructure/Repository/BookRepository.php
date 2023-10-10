@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Books\Repository\AggregateRoot;
+namespace Books\Books\Infrastructure\Repository;
 
 use EventSauce\EventSourcing\EventSourcedAggregateRootRepository;
 use EventSauce\EventSourcing\MessageDispatcher;

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Books\Books\Infrastructure\Controller;
 
 use Books\Books\Domain\BookId;
+use Books\Books\Infrastructure\Repository\BookRepository;
 use Books\Books\Infrastructure\Request\IncreaseStock;
-use Books\Repository\AggregateRoot\BookRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
