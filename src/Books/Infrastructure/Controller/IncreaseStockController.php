@@ -6,7 +6,7 @@ namespace Books\Books\Infrastructure\Controller;
 
 use Books\Books\Application\Command\IncreaseStockCommand;
 use Books\Books\Domain\Model\BookId;
-use Books\Books\Infrastructure\Repository\BookRepository;
+use Books\Books\Domain\Repository\BookRepositoryInterface;
 use Books\Books\Infrastructure\Request\IncreaseStock;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 readonly class IncreaseStockController
 {
     public function __construct(
-        private BookRepository $bookRepository,
+        private BookRepositoryInterface $bookRepository,
         private IncreaseStockCommand $command
     ) {
     }
