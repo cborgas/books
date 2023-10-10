@@ -6,7 +6,7 @@ namespace Books\Books\Infrastructure\Request;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-final readonly class CreateBook
+final readonly class AddBook
 {
     public function __construct(
         #[Assert\NotBlank]
