@@ -1,8 +1,8 @@
 <?php
 
-namespace Books\Event\Book;
+namespace Books\Books\Domain\Event;
 
-use Books\Books\Domain\BookId;
+use Books\Books\Domain\Model\BookId;
 
 readonly class Created
 {

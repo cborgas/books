@@ -2,8 +2,8 @@
 
 namespace Books\Listener;
 
+use Books\Books\Domain\Event\StockIncreased;
 use Books\Books\Infrastructure\Repository\BookRepository;
-use Books\Event\Book\StockIncreased;
 use EventSauce\EventSourcing\Message;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 

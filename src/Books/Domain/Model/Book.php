@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Books\Books\Domain;
+namespace Books\Books\Domain\Model;
 
-use Books\Event\Book\Created;
-use Books\Event\Book\StockIncreased;
-use Books\Event\Book\StockLimitReached;
+use Books\Books\Domain\Event\Created;
+use Books\Books\Domain\Event\StockIncreased;
+use Books\Books\Domain\Event\StockLimitReached;
 use EventSauce\EventSourcing\AggregateRoot;
 use EventSauce\EventSourcing\AggregateRootBehaviour;
 use JsonSerializable;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Books\Books\Infrastructure\Controller;
 
-use Books\Books\Domain\Book;
+use Books\Books\Domain\Model\Book;
 use Books\Books\Infrastructure\Repository\BookRepository;
 use Books\Books\Infrastructure\Request\CreateBook;
 use Books\Books\Infrastructure\Response\BookCreatedSuccessResponse;

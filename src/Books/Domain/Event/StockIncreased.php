@@ -1,6 +1,6 @@
 <?php
 
-namespace Books\Event\Book;
+namespace Books\Books\Domain\Event;
 
 readonly class StockIncreased
 {

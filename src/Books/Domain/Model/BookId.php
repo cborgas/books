@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Books\Books\Domain;
+namespace Books\Books\Domain\Model;
 
 use EventSauce\EventSourcing\AggregateRootId;
 use EventSauce\ObjectHydrator\Constructor;

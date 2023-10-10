@@ -2,7 +2,7 @@
 
 namespace Books\Listener;
 
-use Books\Event\Book\StockLimitReached;
+use Books\Books\Domain\Event\StockLimitReached;
 use EventSauce\EventSourcing\Message;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;

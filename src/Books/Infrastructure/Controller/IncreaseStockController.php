@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Books\Books\Infrastructure\Controller;
 
-use Books\Books\Domain\BookId;
+use Books\Books\Domain\Model\BookId;
 use Books\Books\Infrastructure\Repository\BookRepository;
 use Books\Books\Infrastructure\Request\IncreaseStock;
 use Symfony\Component\HttpFoundation\JsonResponse;
