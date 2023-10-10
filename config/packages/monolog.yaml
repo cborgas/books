@@ -32,6 +32,11 @@ when@test:
                 handler: nested
                 excluded_http_codes: [404, 405]
                 channels: ["!event"]
+            test:
+                type: test
+                action_level: info
+                channels: ["app"]
+                buffer_size: 100
             nested:
                 type: stream
                 path: "%kernel.logs_dir%/%kernel.environment%.log"

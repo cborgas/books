@@ -6,6 +6,7 @@ namespace Books\Model;
 
 use Books\Event\Book\Created;
 use Books\Event\Book\StockIncreased;
+use Books\Event\Book\StockLimitReached;
 use EventSauce\EventSourcing\AggregateRoot;
 use EventSauce\EventSourcing\AggregateRootBehaviour;
 use JsonSerializable;
@@ -21,6 +22,8 @@ class Book implements AggregateRoot, JsonSerializable
     private int $stock = 0;
 
     private bool $created = false;
+
+    private bool $stockLimitReached = false;
 
     public static function create(string $name): Book
     {
@@ -46,6 +49,18 @@ class Book implements AggregateRoot, JsonSerializable
     public function applyStockIncreased(StockIncreased $event): void
     {
         $this->stock += $event->amount;
+    }
+
+    public function checkStockLimit(int $limit): void
+    {
+        if ($this->stock === $limit) {
+            $this->recordThat(new StockLimitReached($this->stock, $limit));
+        }
+    }
+
+    public function applyStockLimitReached(StockLimitReached $event): void
+    {
+        $this->stockLimitReached = true;
     }
 
     public function getName(): string

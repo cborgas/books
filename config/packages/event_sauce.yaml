@@ -23,6 +23,9 @@ services:
 
     EventSauce\EventSourcing\SynchronousMessageDispatcher:
         class: EventSauce\EventSourcing\SynchronousMessageDispatcher
+        arguments:
+            $consumers:
+                - '@Books\Framework\EventSauce\EventDispatcher'
 
     EventSauce\EventSourcing\MessageDispatcher:
         alias: EventSauce\EventSourcing\SynchronousMessageDispatcher
