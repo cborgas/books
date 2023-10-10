@@ -1,6 +1,6 @@
 <?php
 
-namespace Books\Listener;
+namespace Books\Books\Application\EventListener;
 
 use Books\Books\Domain\Event\StockIncreased;
 use Books\Books\Infrastructure\Repository\BookRepository;
