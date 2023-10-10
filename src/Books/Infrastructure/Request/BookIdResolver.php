@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Books\Books\Infrastructure\Request;
 
-use Books\Model\BookId;
+use Books\Books\Domain\BookId;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;

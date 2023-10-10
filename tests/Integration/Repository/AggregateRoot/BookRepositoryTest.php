@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Books\Tests\Integration\Repository\AggregateRoot;
 
-use Books\Model\Book;
+use Books\Books\Domain\Book;
 use Books\Repository\AggregateRoot\BookRepository;
 use PHPUnit\Framework\Attributes\Test;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

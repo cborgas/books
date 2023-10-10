@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Books\Model;
+namespace Books\Books\Domain;
 
 use Books\Event\Book\Created;
 use Books\Event\Book\StockIncreased;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Books\Model;
+namespace Books\Books\Domain;
 
 use EventSauce\EventSourcing\AggregateRootId;
 use EventSauce\ObjectHydrator\Constructor;
@@ -10,7 +10,8 @@ use EventSauce\ObjectHydrator\DoNotSerialize;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-readonly class BookId implements AggregateRootId
+readonly class
+BookId implements AggregateRootId
 {
     public function __construct(private UuidInterface $id) {}
 

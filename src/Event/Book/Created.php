@@ -2,7 +2,7 @@
 
 namespace Books\Event\Book;
 
-use Books\Model\BookId;
+use Books\Books\Domain\BookId;
 
 readonly class Created
 {

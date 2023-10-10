@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Books\Tests\Integration\Controller\Book;
 
-use Books\Model\BookId;
+use Books\Books\Domain\BookId;
 use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -10,11 +10,11 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Model/'
+            - '../src/*/Domain/'
             - '../src/Kernel.php'
             - '../src/Event/'
-            - '../src/Books/Infrastructure/Response/'
-            - '../src/Books/Infrastructure/Request/'
+            - '../src/*/Infrastructure/Response/'
+            - '../src/*/Infrastructure/Request/'
 
     Books\Books\Infrastructure\Request\BookIdResolver:
         class: Books\Books\Infrastructure\Request\BookIdResolver
