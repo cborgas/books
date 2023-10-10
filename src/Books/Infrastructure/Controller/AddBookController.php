@@ -13,12 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final readonly class AddBookController
 {
-    public function __construct(private AddBookCommand $command) {}
+    public function __construct(private AddBookCommand $addBookCommand) {}
 
     #[Route('/api/books', methods: ['POST'])]
     public function add(#[MapRequestPayload(acceptFormat: 'json')] AddBook $createBookRequest): JsonResponse
     {
-        $book = $this->command->add($createBookRequest);
+        $book = $this->addBookCommand->__invoke($createBookRequest);
 
         return new BookAddedSuccessResponse($book);
     }

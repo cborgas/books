@@ -17,7 +17,7 @@ readonly class IncreaseStockController
 {
     public function __construct(
         private BookRepositoryInterface $bookRepository,
-        private IncreaseStockCommand $command
+        private IncreaseStockCommand $increaseStockCommand
     ) {
     }
 
@@ -27,7 +27,7 @@ readonly class IncreaseStockController
         #[MapRequestPayload(acceptFormat: 'json')] IncreaseStock $increaseStockRequest
     ): JsonResponse {
         $book = $this->bookRepository->retrieve($bookId);
-        $this->command->increaseStock($book, $increaseStockRequest);
+        $this->increaseStockCommand->__invoke($book, $increaseStockRequest);
 
         return new JsonResponse(['data' => $book], Response::HTTP_ACCEPTED);
     }

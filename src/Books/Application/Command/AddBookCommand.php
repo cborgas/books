@@ -12,7 +12,7 @@ readonly class AddBookCommand
 {
     public function __construct(private BookRepositoryInterface $bookRepository) {}
 
-    public function add(AddBook $addBook): Book
+    public function __invoke(AddBook $addBook): Book
     {
         $book = Book::create($addBook->name);
         $this->bookRepository->persist($book);
