@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Books\Api\Controller\Book;
+namespace Books\Books\Infrastructure\Controller;
 
+use Books\Books\Infrastructure\Request\CreateBook;
+use Books\Books\Infrastructure\Response\BookCreatedSuccessResponse;
 use Books\Model\Book;
 use Books\Repository\AggregateRoot\BookRepository;
-use Books\Api\Request\Book\CreateBook;
-use Books\Api\Response\Book\BookCreatedSuccessResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Annotation\Route;

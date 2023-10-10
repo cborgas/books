@@ -13,11 +13,11 @@ services:
             - '../src/Model/'
             - '../src/Kernel.php'
             - '../src/Event/'
-            - '../src/Api/Response/'
-            - '../src/Api/Request/'
+            - '../src/Books/Infrastructure/Response/'
+            - '../src/Books/Infrastructure/Request/'
 
-    Books\Api\Request\Book\BookIdResolver:
-        class: Books\Api\Request\Book\BookIdResolver
+    Books\Books\Infrastructure\Request\BookIdResolver:
+        class: Books\Books\Infrastructure\Request\BookIdResolver
         tags:
             - controller.argument_value_resolver:
                 name: bookId

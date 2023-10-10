@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Books\Api\Response\Book;
+namespace Books\Books\Infrastructure\Response;
 
 use Books\Model\Book;
 use Symfony\Component\HttpFoundation\JsonResponse;

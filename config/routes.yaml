@@ -1,5 +1,5 @@
 controllers:
     resource:
-        path: ../src/Api/Controller/
-        namespace: Books\Api\Controller
+        path: ../src/Books/Infrastructure/Controller/
+        namespace: Books\Books\Infrastructure\Controller
     type: attribute
